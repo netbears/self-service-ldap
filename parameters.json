@@ -1,0 +1,50 @@
+[
+  {
+    "ParameterKey": "VpcId",
+    "ParameterValue": "${VpcId}"
+  },
+  {
+    "ParameterKey": "SubnetContainer",
+    "ParameterValue": "${SubnetContainer}"
+  },
+  {
+    "ParameterKey": "SubnetLoadBalancer",
+    "ParameterValue": "${SubnetLoadBalancer}"
+  },
+  {
+    "ParameterKey": "LoadBalancerType",
+    "ParameterValue": "${LoadBalancerType}"
+  },
+  {
+    "ParameterKey": "SslLoadBalancer",
+    "ParameterValue": "${SslLoadBalancer}"
+  },
+  {
+    "ParameterKey": "Image",
+    "ParameterValue": "${Image}"
+  },
+  {
+    "ParameterKey": "DnsZone",
+    "ParameterValue": "${DnsZone}"
+  },
+  {
+    "ParameterKey": "DnsRecord",
+    "ParameterValue": "${DnsRecord}"
+  },
+  {
+    "ParameterKey": "LdapBase",
+    "ParameterValue": "${LdapBase}"
+  },
+  {
+    "ParameterKey": "LdapBindDn",
+    "ParameterValue": "${LdapBindDn}"
+  },
+  {
+    "ParameterKey": "LdapBindPw",
+    "ParameterValue": "${LdapBindPw}"
+  },
+  {
+    "ParameterKey": "LdapUrl",
+    "ParameterValue": "${LdapUrl}"
+  }
+]

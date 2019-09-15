@@ -38,7 +38,6 @@ Parameters:
     Type: String
     Description: Format is "OU=Users,DC=domain,DC=com"
 
-
   LdapBindDn:
     Type: String
     Description: Format is "cn=SSP,OU=Users,DC=domain,DC=com"
