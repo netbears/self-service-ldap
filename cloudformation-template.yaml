@@ -34,21 +34,38 @@ Parameters:
   DnsRecord:
     Type: String
 
-  LdapBase:
+  LdapUrl:
     Type: String
-    Description: Format is "OU=Users,DC=domain,DC=com"
 
   LdapBindDn:
     Type: String
-    Description: Format is "cn=SSP,OU=Users,DC=domain,DC=com"
 
   LdapBindPw:
     Type: String
     NoEcho: true
 
-  LdapUrl:
+  LdapBase:
     Type: String
-    Description: Format is "ldap://ldap_hostname_here"
+
+  MailFrom:
+    Type: String
+
+  MailFromName:
+    Type: String
+    Default: SSP
+
+  MailSmtpHost:
+    Type: String
+
+  MailSmtpUser:
+    Type: String
+
+  MailSmtpPass:
+    Type: String
+    NoEcho: true
+
+  MailSmtpPort:
+    Type: String
 
 Resources:
 
@@ -92,6 +109,24 @@ Resources:
             - Name: ldap_base
               Value:
                 Ref: LdapBase
+            - Name: mail_from
+              Value:
+                Ref: MailFrom
+            - Name: mail_from_name
+              Value:
+                Ref: MailFromName
+            - Name: mail_smtp_host
+              Value:
+                Ref: MailSmtpHost
+            - Name: mail_smtp_user
+              Value:
+                Ref: MailSmtpUser
+            - Name: mail_smtp_pass
+              Value:
+                Ref: MailSmtpPass
+            - Name: mail_smtp_port
+              Value:
+                Ref: MailSmtpPort
           LogConfiguration:
             LogDriver: awslogs
             Options:

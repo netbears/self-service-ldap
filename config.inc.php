@@ -88,7 +88,7 @@ $hash_options['crypt_salt_length'] = "6";
 # Local password policy
 # This is applied before directory password policy
 # Minimal length
-$pwd_min_length = 12;
+$pwd_min_length = 8;
 # Maximal length
 $pwd_max_length = 24;
 # Minimal lower characters
@@ -102,7 +102,7 @@ $pwd_min_special = 0;
 # Definition of special characters
 $pwd_special_chars = "^a-zA-Z0-9";
 # Forbidden characters
-$pwd_forbidden_chars = "*()&|$";
+$pwd_forbidden_chars = "*()&|";
 # Don't reuse the same password as currently
 $pwd_no_reuse = true;
 # Check that password is different than login
@@ -115,7 +115,7 @@ $use_pwnedpasswords = false;
 # always
 # never
 # onerror
-$pwd_show_policy = "never";
+$pwd_show_policy = "always";
 # Position of password policy constraints message:
 # above - the form
 # below - the form
@@ -152,7 +152,7 @@ $notify_on_sshkey_change = false;
 # Use questions/answers?
 # true (default)
 # false
-$use_questions = true;
+$use_questions = false;
 
 # Answer attribute should be hidden to users!
 $answer_objectClass = "extensibleObject";
@@ -182,26 +182,26 @@ $mail_attribute = "mail";
 # Get mail address directly from LDAP (only first mail entry)
 # and hide mail input field
 # default = false
-$mail_address_use_ldap = false;
+$mail_address_use_ldap = true;
 # Who the email should come from
-$mail_from = "admin@example.com";
-$mail_from_name = "Self Service Password";
+$mail_from = getenv('mail_from');
+$mail_from_name = getenv('mail_from_name');
 $mail_signature = "";
 # Notify users anytime their password is changed
-$notify_on_change = false;
+$notify_on_change = true;
 # PHPMailer configuration (see https://github.com/PHPMailer/PHPMailer)
 $mail_sendmailpath = '/usr/sbin/sendmail';
 $mail_protocol = 'smtp';
 $mail_smtp_debug = 0;
 $mail_debug_format = 'error_log';
-$mail_smtp_host = 'localhost';
-$mail_smtp_auth = false;
-$mail_smtp_user = '';
-$mail_smtp_pass = '';
-$mail_smtp_port = 25;
+$mail_smtp_host = getenv('mail_smtp_host');
+$mail_smtp_auth = true;
+$mail_smtp_user = getenv('mail_smtp_user');
+$mail_smtp_pass = getenv('mail_smtp_pass');
+$mail_smtp_port = getenv('mail_smtp_port');
 $mail_smtp_timeout = 30;
 $mail_smtp_keepalive = false;
-$mail_smtp_secure = 'tls';
+$mail_smtp_secure = false;
 $mail_smtp_autotls = true;
 $mail_contenttype = 'text/plain';
 $mail_wordwrap = 0;
@@ -238,7 +238,7 @@ $max_attempts = 3;
 # Encryption, decryption keyphrase, required if $crypt_tokens = true
 # Please change it to anything long, random and complicated, you do not have to remember it
 # Changing it will also invalidate all previous tokens and SMS codes
-$keyphrase = "887712d3-4e4d-4b3a-808e-5cc95d591bc1";
+$keyphrase = "6ad8af1d-40db-4826-b1e7-cad0a468aa72";
 
 # Reset URL (if behind a reverse proxy)
 #$reset_url = $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $_SERVER['HTTP_X_FORWARDED_HOST'] . $_SERVER['SCRIPT_NAME'];
@@ -269,7 +269,7 @@ $background_image = "images/unsplash-space.jpeg";
 # Invalid characters in login
 # Set at least "*()&|" to prevent LDAP injection
 # If empty, only alphanumeric characters are accepted
-$login_forbidden_chars = "*()&|$";
+$login_forbidden_chars = "*()&|";
 
 ## CAPTCHA
 # Use Google reCAPTCHA (http://www.google.com/recaptcha)
@@ -297,7 +297,7 @@ $messages['passwordchangedextramessage'] = "Congratulations!";
 $messages['changehelpextramessage'] = "Contact us if you are lost...";
 
 # Launch a posthook script after successful password change
-#$posthook = "/usr/share/self-service-password/posthook.sh";
+$posthook = "/var/www/html/ssp/conf/posthook.sh";
 $display_posthook_error = false;
 
 # Hide some messages to not disclose sensitive information
