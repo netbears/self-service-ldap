@@ -29,6 +29,5 @@ RUN     a2ensite ssp \
 
 COPY    config.inc.php /var/www/html/ssp/conf/config.inc.php
 COPY    posthook.sh /var/www/html/ssp/conf/posthook.sh
-COPY    databases-mariadb-10.txt /var/www/html/ssp/conf/databases-mariadb-10.txt
 
 EXPOSE 80
